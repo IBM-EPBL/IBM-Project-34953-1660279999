@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Saira Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">		
 
+    <style>
+        body{
+            background-color: rgb(16, 12, 12);
+        }
+        .loginCntnt{
+            display: flex;
+            margin-top: 12%;
+            margin-left: 20%;
+        }
+        .loginPge{
+            background-color: rgb(68, 180, 208);
+            width: 400px;
+            height: 350px;
+        }
+        .loginTtle{
+            font-family:'Fjalla One';
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-left: 40%;
+            margin-top: 12px;
+        }
+        .loginForm{
+            position:relative;
+            padding: 10px;
+        }
+        .loginForm input{
+            width: 50%;
+            height:35px;
+            border: 2px solid;
+            border-radius: 10px;
+            border-color: rgb(6, 186, 192);
+            padding: 0 10px;
+            margin-left: 20%;
+            margin-top: 2%;
+            background: transparent;
+            font-family:'Saira Condensed';
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+        }
+
+        ::placeholder{
+            color:white;
+            opacity: 0.6;
+        }
+
+        .loginForm button{
+            margin-left: 40%;
+            margin-top: 10%;
+            /* width: 150px; */
+            width: fit-content;
+            height:30px;
+            border-radius: 10px;
+            border-color: transparent;
+            background-color: black;
+            color: aqua;
+            font-family: 'Russo One';
+        }
+
+        .loginForm button:hover{
+            background-color: rgba(255, 255, 255, 0.719);
+            color: black;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .signup{
+            margin-left: 40%;
+            margin-top: 1%;
+            font-family: 'Russo One';
+            color: rgb(0, 0, 0);
+            width: fit-content;
+        }
+
+        .loginPicture{
+            width: 550px;
+            height: 350px;
+        }
+
+        #ErrorMsg{
+            margin-left: 14%;    
+
+        }
+        @media only screen and (max-width: 900px) {
+            .loginPicture{
+                width: 500px;
+                height: 350px;
+                transition: 0.5s;
+            }
+            .loginCntnt {
+                flex-direction: column;
+            }
+            .loginPge{
+                margin-left: 12%;
+            }
+
+        }
+        @media only screen and (max-width: 890px) {
+            .loginPge{
+                margin-left: 0.1%;
+                width: 500px;
+                transition: 0.9s;
+            }
+        }
+        @media only screen and (max-width: 500px) {
+            .loginPge{
+                margin-left: 15%;
+                width: 380px;
+                transition: 0.8s;
+            }
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="loginCntnt">
+        <div class="loginImage">
+            <img class="loginPicture" src="{{loginpic}}" alt="loginimg">
+        </div>
+        <div class="loginPge">
+            <h2 class="loginTtle">LOGIN</h2>
+            <form action="{{ url_for('login') }}" class="loginForm" method="POST">
+                <input type="text" name="usrname" id="usrname" placeholder="user name" required ><br>
+                <input type="password" name="password" id="password" placeholder="password" required><br>
+                <p id="ErrorMsg">{{errorMsg}}</p>
+                <button type="submit">LOGIN</button>
+            </form>                
+            <!-- <button class="signup" onclick="{{url_for('register')}}">Sign up</button> -->
+            <h4 ><a class="signup" href="{{url_for('register')}}">Sign up</a></h4>
+        </div>
+    </div>
+</body>
+</html>
