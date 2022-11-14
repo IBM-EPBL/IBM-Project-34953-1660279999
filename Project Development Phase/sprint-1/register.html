@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Saira Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
 
+    <style>
+        
+        body{
+            background-color: black;
+        }
+        .rgstrCntnt{
+            display: flex;
+            margin-top: 12%;
+            margin-left: 20%;
+        }
+        .rgstrPge{
+            margin-top: -4%;
+            background-color: rgb(7, 141, 175);
+            width: 400px;
+            height: 400px;
+        }
+        .rgstrTtle{
+            font-family:'Fjalla One';
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-left: 34%;
+            margin-top: 12px;
+        }
+        .rgstrForm{
+            position:relative;
+            padding: 10px;
+            margin-top: -3%;
+        }
+
+        .rgstrForm input{
+            width: 50%;
+            height:35px;
+            border: 2px solid;
+            border-radius: 10px;
+            border-color: rgb(6, 186, 192);
+            padding: 0 10px;
+            margin-left: 20%;
+            margin-top: 2%;
+            background: transparent;
+            font-family:'Saira Condensed';
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+        }
+
+        ::placeholder{
+            color:white;
+            opacity: 0.6;
+        }
+
+        .rgstrForm button{
+            margin-left: 36%;
+            margin-top: 3%;
+            width: 100px;
+            height:30px;
+            border-radius: 10px;
+            border-color: transparent;
+            background-color: black;
+            color: aqua;
+            font-family: 'Russo One';
+        }
+
+        .rgstrForm button:hover{
+            background-color: rgba(255, 255, 255, 0.719);
+            color: black;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .signin{
+            margin-left: 43%;
+            margin-top: -1%;
+        }
+        .rgImge{
+            width: 550px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="rgstrCntnt">
+        <div class="rgstrImage">
+            <img class="rgImge" src="{{registerImg}}" alt="Car resale value" style="width: 550px;height:300px;">
+        </div>
+        <div class="rgstrPge">
+            <h2 class="rgstrTtle">REGISTER</h2>
+            <form action="{{ url_for('register') }}" class="rgstrForm" method="POST">
+                <input type="text" id="usrname" name="usrname" placeholder="user name" required><br>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br>
+                <input type="password" id="password" name="password" placeholder="password" required><br>
+                <input type="password" id="rpassword" placeholder="retype-password" required><br>
+                <p id="ErrorMsg">{{errorMsg}}</p>
+                <button type="submit">REGISTER</button>
+            </form>
+            <h4 class="signin"><a href="{{url_for('login')}}">Sign in</a></h4>
+        </div>
+    </div>
+</body>
+</html>
