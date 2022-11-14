@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
 
+    <style>
+        *{
+            margin: 0;
+        }
+        .navImg{
+            width: 100%;
+            height:250px;
+            filter: brightness(70%);
+            position: relative;
+        }
+        .dashboard{
+            position: relative;
+        }
+        .introTxt{
+            position: absolute;
+            color: rgb(255, 255, 255);
+            margin-top: -10%;
+            margin-left: 30%;
+            font-family: 'Russo One';
+            font-size: 2em;
+            letter-spacing: 5px;
+        }
+
+        @media only screen and (max-width: 1034px){
+            .introTxt{
+                margin-left: 18%;
+                margin-top: -18%;
+                width: 700px;
+                transition: 0.5s;
+            }
+        }
+        @media only screen and (max-width: 690px){
+            .introTxt{
+                margin-left: 2%;
+                width: 700px;
+                font-size: 25px;
+                transition: 0.5s;
+            }
+            .navImg{
+                width: 900px;
+                height: 200px;
+            filter: brightness(70%);
+            position: relative;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="dashboard">
+            <img class="navImg" src="{{dashboard}}" alt="car" style="width: 100%;height:300px;">
+            <!-- <img class="navImg" src="/Car Resale Value Prediction/static/pics/dashboard.jpg" alt="car"> -->
+            <div class="introTxt">
+                <h2>Smart Waste Management System</h2>
+            </div>    
+        </div>
+        <p id="errorMsg"></p>
+    </nav>
+</body>
+</html>
